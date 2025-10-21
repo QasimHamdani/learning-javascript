@@ -17,8 +17,24 @@ console.log(weather)
 
 
 function addNumbers(number1, number2){
-    const sum = number1+number2;
-    return sum;
+    return number1+number2;
+   
 }
-const result = addNumbers(5+29)
+const sum = addNumbers(5, 29)
 console.log("the sum is", sum)
+
+
+function Hi(name, age) {
+  return `Hi, ${name}! You are ${age} years old.`;
+}
+const callHiWithRandomParams = () => {
+  const randomNames = ["Johnny", "Bo", "Jaxson", "Baker"];
+  const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+  const randomAge = Math.floor(Math.random() * 60); 
+
+  return Hi(randomName, randomAge);
+};
+
+
+console.log(callHiWithRandomParams());
+console.log(callHiWithRandomParams());
