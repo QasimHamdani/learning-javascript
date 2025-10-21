@@ -38,3 +38,57 @@ const callHiWithRandomParams = () => {
 
 console.log(callHiWithRandomParams());
 console.log(callHiWithRandomParams());
+
+let myColourStringArray = [
+    "red", "blue", "green", "white", "red",
+    "yellow", "black", "gold", "maroon", "purple",
+    "pink", "turquoise", "orange", "silver", "bronze"
+];
+
+console.log(myColourStringArray.length);
+console.log(myColourStringArray[0]);
+console.log(myColourStringArray[myColourStringArray.length - 1]);
+
+const randomIndex = Math.floor(Math.random() * myColourStringArray.length);
+console.log("Random element:", myColourStringArray[randomIndex]);
+
+myColourStringArray.sort();
+console.log("Sorted array:", myColourStringArray);
+
+
+myColourStringArray.push("black", "white");
+console.log("Array after pushing:", myColourStringArray);
+
+myColourStringArray.push(67);
+console.log("Array after adding an integer:", myColourStringArray);
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const randomNumbers = [];
+const arrayLength = 10;
+
+for (let i = 0; i < arrayLength; i++) {
+  // Generate a random number between 29 and 87 (inclusive)
+  randomNumbers.push(getRandomInt(29, 87));
+}
+let maxDistance = 0;
+let element1 = 0;
+let element2 = 0;
+
+for (let i = 0; i < randomNumbers.length - 1; i++) {
+    const currentDistance = Math.abs(randomNumbers[i] - randomNumbers[i + 1]);
+    if (currentDistance > maxDistance) {
+    maxDistance = currentDistance;
+    element1 = randomNumbers[i];
+    element2 = randomNumbers[i + 1];
+  }
+}
+console.log("The array is:", randomNumbers);
+console.log(`The greatest distance between consecutive elements is ${maxDistance}, found between ${element1} and ${element2}.`);
+
+
