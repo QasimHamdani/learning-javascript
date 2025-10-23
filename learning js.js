@@ -91,4 +91,6 @@ for (let i = 0; i < randomNumbers.length - 1; i++) {
 console.log("The array is:", randomNumbers);
 console.log(`The greatest distance between consecutive elements is ${maxDistance}, found between ${element1} and ${element2}.`);
 
+const squaredArray = randomNumbers.map(number => number * number);
 
+console.log(squaredArray);
