@@ -94,3 +94,28 @@ console.log(`The greatest distance between consecutive elements is ${maxDistance
 const squaredArray = randomNumbers.map(number => number * number);
 
 console.log(squaredArray);
+
+
+//Take the array you made in the last question. 
+// Find the largest number in the array. 
+// Use the filter() function for arrays to filter 
+// all numbers in the array that are larger than half of the maximum number. 
+// Console.log the new array
+//This answers that question
+const largestNumber= Math.max(...randomNumbers);
+const halfMax = largestNumber / 2;
+const filteredArray = randomNumbers.filter(number => number > halfMax);
+console.log(filteredArray);
+
+
+
+const sum2 = randomNumbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+console.log(sum2);
+
+console.log("--- Colour Array ---");
+myColourStringArray.forEach((myColourStringArray, index) => {
+  console.log(`[${index}] ${myColourStringArray}`);
+});
+console.log("--------------------");
+
