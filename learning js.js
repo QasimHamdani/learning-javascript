@@ -119,3 +119,45 @@ myColourStringArray.forEach((myColourStringArray, index) => {
 });
 console.log("--------------------");
 
+class Movie {
+  constructor(title, mainCharacter, FavCharacter, genre, ratingOutOf10) {
+    this.title = title; // String variable
+    this.mainCharacter = mainCharacter; // String variable
+    this.FavCharacter = FavCharacter; 
+    this.genre = genre; 
+    this.ratingOutOf10= ratingOutOf10;
+  }
+  printMovieDetails() {
+    console.log(`Title: ${this.title}`);
+    console.log(`Main Character:: ${this.mainCharacter}`);
+    console.log(`Favourite Character: ${this.FavCharacter}`);
+    console.log(`Genre: ${this.genre}`);
+    console.log(`Rating out of 10: ${this.ratingOutOf10}`);
+
+  }
+}
+
+
+//const myMovie = new Movie("Star Wars", "Luke Skywalker","Anakin Skywalker", "Science Fiction", 9.75);
+//myMovie.printMovieDetails();
+
+const myMovie = [
+  new Movie("The Amazing Spiderman", "Spiderman", "Peter Parker", "Action", 9.88),
+  new Movie("Rocky IV ", "Rocky", "Rocky", "Sports", 9.79),
+  new Movie("Cars", "Lightning McQueen", "Lightning McQueen", "Action", 9.94),
+  new Movie("Cars 2", "Lightning McQueen", "Lightning McQueen", "Action", 9.95 ),
+  new Movie("Toy Story 3", "Woody", "Buzz Lightyear", "Action", 8.10),
+  new Movie("Dumb And Dumber", "Lloyd Christmas", "Lloyd Christmas", "Comedy", 9.97),
+  new Movie("The Amazing Spiderman 2", "Spiderman", "Peter Parker", "Action", 9.78),
+  new Movie("Harry Potter and the Goblet of Fire", "Harry Potter", "Harry Potter", 9.12),
+  new Movie("Zootopia", "Judy Hopps", "Nick Wilde", "Action", 8.98),
+  new Movie("Minions", "Kevin", "Bob", "Action", 9.55),
+];
+myMovie.printMovieDetails();
+console.log("Original Array:", myMovie);
+const filteredMovies = myMovie.filter(movie => movie.name.startsWith("A"));
+console.log("\nFiltered People (names starting with 'A'):", filteredMovies);
+
+const ratingOutOf10 = myMovie.map(movie => movie.ratingOutOf10);
+console.log("\nRating:", ratingOutOf10);
+
