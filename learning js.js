@@ -138,10 +138,10 @@ class Movie {
 }
 
 
-//const myMovie = new Movie("Star Wars", "Luke Skywalker","Anakin Skywalker", "Science Fiction", 9.75);
-//myMovie.printMovieDetails();
+const myMovie = new Movie("Star Wars", "Luke Skywalker","Anakin Skywalker", "Science Fiction", 9.75);
+myMovie.printMovieDetails();
 
-const myMovie = [
+const Movies = [
   new Movie("The Amazing Spiderman", "Spiderman", "Peter Parker", "Action", 9.88),
   new Movie("Rocky IV ", "Rocky", "Rocky", "Sports", 9.79),
   new Movie("Cars", "Lightning McQueen", "Lightning McQueen", "Action", 9.94),
@@ -149,15 +149,39 @@ const myMovie = [
   new Movie("Toy Story 3", "Woody", "Buzz Lightyear", "Action", 8.10),
   new Movie("Dumb And Dumber", "Lloyd Christmas", "Lloyd Christmas", "Comedy", 9.97),
   new Movie("The Amazing Spiderman 2", "Spiderman", "Peter Parker", "Action", 9.78),
-  new Movie("Harry Potter and the Goblet of Fire", "Harry Potter", "Harry Potter", 9.12),
+  new Movie("Harry Potter and the Goblet of Fire", "Harry Potter", "Harry Potter", "Action", 9.11),
   new Movie("Zootopia", "Judy Hopps", "Nick Wilde", "Action", 8.98),
   new Movie("Minions", "Kevin", "Bob", "Action", 9.55),
 ];
-myMovie.printMovieDetails();
-console.log("Original Array:", myMovie);
-const filteredMovies = myMovie.filter(movie => movie.name.startsWith("A"));
+
+console.log("Original Array:", Movies);
+const filteredMovies = Movies.filter(movie => movie.title.startsWith("A"));
 console.log("\nFiltered People (names starting with 'A'):", filteredMovies);
 
-const ratingOutOf10 = myMovie.map(movie => movie.ratingOutOf10);
+const ratingOutOf10 = Movies.map(movie => movie.ratingOutOf10);
 console.log("\nRating:", ratingOutOf10);
 
+Movies.forEach(movie => {
+  movie.ratingOutOf10 += 0.01;
+  console.log(`${movie.title} → new rating: ${movie.ratingOutOf10}`);
+});
+
+function customSort(arr, property, order = 'asc') {
+  return [...arr].sort((a, b) => {
+    if (order === 'asc') {
+      if (a[property] < b[property]) return -1;
+      if (a[property] > b[property]) return 1;
+      return 0;
+    } else { // descending
+      if (a[property] > b[property]) return -1;
+      if (a[property] < b[property]) return 1;
+      return 0;
+    }
+  });
+}
+
+const sortedMoviesAscByTitle = customSort(Movies, 'title', 'asc');
+console.log("\nSorted People (ascending by title):", sortedMoviesAscByTitle);
+
+const sortedMoviesDescByRatingOutOf10 = customSort(Movies, 'ratingOutOf10', 'desc');
+console.log("\nSorted People (descending by ratingOutOf10):", sortedMoviesDescByRatingOutOf10);
