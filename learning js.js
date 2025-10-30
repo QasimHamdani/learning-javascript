@@ -172,7 +172,7 @@ function customSort(arr, property, order = 'asc') {
       if (a[property] < b[property]) return -1;
       if (a[property] > b[property]) return 1;
       return 0;
-    } else { // descending
+    } else { // descending I think this is optiona -> its not doing anything
       if (a[property] > b[property]) return -1;
       if (a[property] < b[property]) return 1;
       return 0;
@@ -181,7 +181,13 @@ function customSort(arr, property, order = 'asc') {
 }
 
 const sortedMoviesAscByTitle = customSort(Movies, 'title', 'asc');
-console.log("\nSorted People (ascending by title):", sortedMoviesAscByTitle);
+console.log("\nSorted Movies (ascending by title):", sortedMoviesAscByTitle);
+for(let x = 0; x< sortedMoviesAscByTitle.length; x++){
+sortedMoviesAscByTitle[x].printMovieDetails();
+}
 
 const sortedMoviesDescByRatingOutOf10 = customSort(Movies, 'ratingOutOf10', 'desc');
-console.log("\nSorted People (descending by ratingOutOf10):", sortedMoviesDescByRatingOutOf10);
+console.log("\nSorted Movies (descending by ratingOutOf10):", sortedMoviesDescByRatingOutOf10);
+for(let x = 0; x< sortedMoviesDescByRatingOutOf10.length; x++){
+sortedMoviesDescByRatingOutOf10[x].printMovieDetails();
+}
